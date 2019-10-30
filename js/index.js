@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  const HOST = "https://mybinder.org/build/gh";
+  const BUILD_ENDPOINT = `${BINDERHUB_HOST}/build/gh`;
 
   $(".launch-item").click(function(event) {
     let name = $(event.currentTarget).data("example-name");
@@ -11,7 +11,7 @@ $(document).ready(function() {
     // TODO: handle other sources
     repoUrl = repoUrl.replace("https://github.com/", "");
 
-    const buildUrl = `${HOST}/${repoUrl}/${ref}?urlpath=${url}`;
+    const buildUrl = `${BUILD_ENDPOINT}/${repoUrl}/${ref}?urlpath=${url}`;
 
     console.log("Redirecting to", buildUrl);
 
